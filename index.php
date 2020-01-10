@@ -1,4 +1,5 @@
 <?php
+header('Content-type:application/json;charset=utf-8');
 /*
     Version: 1.2.2
     Author: HKLCF
@@ -8,7 +9,7 @@
 $url = isset($_GET['url']) ? htmlspecialchars($_GET['url']) : null;
 $support_domain = 'www.mediafire.com';
 if (empty($url)) {
-    $error = ['message' => 'Looks like you are missing "url" query string'];
+    $error = ['message' => 'Looks like you are missing <url> query string'];
     echo json_encode($error);
     exit;
 //   $url = 'http://www.mediafire.com/file/8x5ol3r8wpb477a/small.mp4'; // sample link
