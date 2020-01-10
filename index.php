@@ -10,13 +10,15 @@ $support_domain = 'www.mediafire.com';
 if (empty($url)) {
     $error = ['message' => 'Looks like you are missing <url> query string'];
     echo json_encode($error);
+    exit;
 //   $url = 'http://www.mediafire.com/file/8x5ol3r8wpb477a/small.mp4'; // sample link
 }
 if($url) {
   preg_match('@^(?:http.?://)?([^/]+)@i', $url, $matches);
   $host = $matches[1];
   if($host != $support_domain) {
-    echo 'Please input a valid mediafire url.';
+      $error = ['message' => 'Please input a valid mediafire url.']
+    echo json_encode($error);
     exit;
   }
 }
